@@ -1,50 +1,52 @@
-import RNavbar from '../../components/RNavbar/RNavbar.vue'
-import '../../theme/index.css'
-import { data } from './rnavbar.mock.json'
+import RNavbar from "../../components/RNavbar/RNavbar.vue";
+import "../../theme/index.css";
+import { data } from "./rnavbar.mock.json";
 
 export default {
-  title: 'components/RNavbar',
+  title: "components/RNavbar",
   component: RNavbar,
-}
+};
 
 // data
-import imgLogo from '../../assets/logo.png'
-import imgLogo2 from '../../assets/logo2.png'
+import imgLogo from "../../assets/logo.png";
+import imgLogo2 from "../../assets/logo2.png";
 
 function logout() {
-  console.log('logout')
-  alert('TODO: logout')
+  console.log("logout");
+  alert("TODO: logout");
 }
 
 // stories
 const TemplateDefault = (args) => ({
   components: { RNavbar },
   setup() {
-    return { args }
+    return { args };
   },
   template: `<r-navbar v-bind="args"></r-navbar>`,
-})
+});
 
-export const Default = TemplateDefault.bind({})
+export const Default = TemplateDefault.bind({});
 Default.args = {
-  logoHref: '/',
-  logoText: 'LOGO',
+  logoHref: "/",
+  logoText: "LOGO",
   navbardData: data,
-  userName: 'Jan Kowalski',
+  userName: "Jan Kowalski",
   logout,
-}
+};
 
-export const WithLargeLogo = Default.bind({})
-WithLargeLogo.args = {
+export const WithLogo = Default.bind({});
+WithLogo.args = {
   imgLogo: imgLogo,
-  logoText: 'LOGO',
+  logoText: "LOGO",
   navbardData: data,
-  userName: 'Jan Kowalski',
-}
+  userName: "Jan Kowalski",
+};
 
-export const WithSmallLogo = Default.bind({})
-WithSmallLogo.args = {
-  imgLogo: imgLogo2,
-  logoText: 'LOGO',
-  navbardData: data,
-}
+export const WithLinks = Default.bind({});
+WithLinks.args = {
+  logoHref: "/",
+  logoText: "LOGO",
+  navbarData: data,
+  userName: "Jan Kowalski",
+  logout,
+};

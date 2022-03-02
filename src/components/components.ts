@@ -1,5 +1,5 @@
-// export * from './MArticleFlags'
-// export * from './MArticleInformation'
+export * from "./MArticleFlags";
+export * from "./MArticleInformation";
 
 export * from "./RAvatar";
 export * from "./RBadge";

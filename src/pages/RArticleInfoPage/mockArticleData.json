@@ -1,0 +1,146 @@
+{
+  "data": [
+    {
+      "dan": 379364,
+      "ean": 1234567891011,
+      "expirationDate": "10.02.2022",
+      "name": "Loreal CR KHOL kredka do oczu 111 Urban Grey 1,2 g",
+      "description": "krem do twarzy na dzień i na noc efekt redukcji zmarszczek, 50+50 ml",
+      "group": "Pielęgnacja twarzy",
+      "imgLink": "https://www.ros.net.pl/GalleryImages/product_photos/1280_720/272408_202005_1280_720_88966.png",
+      "price": 11.99,
+      "totalWms": 4,
+      "totalSaleRoom": 12,
+      "totalStock": 16,
+      "saleroom": [
+        {
+          "layoutName": "Pielęgnacja twarzy",
+          "name": "3/2/1",
+          "capacity": 10,
+          "rowQuantity": 2,
+          "levelQuantity": 1
+        },
+        {
+          "layoutName": "Golenie",
+          "name": "1/2/3",
+          "capacity": 2,
+          "rowQuantity": 1,
+          "levelQuantity": 3
+        }
+      ],
+      "warehouse": [
+        {
+          "localisationID": 1,
+          "address": "0001 01",
+          "localisationType": "Regał",
+          "quantity": 2,
+          "typeWeight": {
+            "max": 100,
+            "current": 69.702
+          },
+          "levelWeight": {
+            "max": 500,
+            "current": 169.702
+          }
+        },
+        {
+          "localisationId": 2,
+          "address": "0004 02",
+          "localisationType": "Regał",
+          "quantity": 2,
+          "typeWeight": {
+            "max": 100,
+            "current": 56.12
+          },
+          "levelWeight": {
+            "max": 500,
+            "current": 456.12
+          }
+        }
+      ],
+      "flags": [
+        { "id": 1, "name": "Nowość", "priority": 2 },
+        { "id": 2, "name": "Flaga użytkownika sklepu" },
+        { "id": 3, "name": "Flaga nadwyzki WMS", "priority": 4 },
+        { "id": 4, "name": "Flaga dołożenia", "priority": 1 },
+        {
+          "id": 5,
+          "name": "Flaga przekroczonej pojemności półki",
+          "priority": 5
+        },
+        { "id": 6, "name": "Flaga nieudanego pobrania", "priority": 2 }
+      ]
+    },
+    {
+      "dan": 215,
+      "ean": 1234567891011,
+      "expirationDate": "10.02.2022",
+      "name": "Loreal CR KHOL kredka do oczu 111 Urban Grey 1,2 g",
+      "description": "krem do twarzy na dzień i na noc efekt redukcji zmarszczek, 50+50 ml",
+      "group": "Pielęgnacja twarzy",
+      "imgLink": "https://www.ros.net.pl/GalleryImages/product_photos/1280_720/272408_202005_1280_720_88966.png",
+      "price": 11.99,
+      "totalWms": 4,
+      "totalSaleRoom": 12,
+      "totalStock": 16,
+      "saleroom": [
+        {
+          "layoutName": "Pielęgnacja twarzy",
+          "name": "3/2/1",
+          "capacity": 10,
+          "rowQuantity": 2,
+          "levelQuantity": 1
+        },
+        {
+          "layoutName": "Golenie",
+          "name": "1/2/3",
+          "capacity": 2,
+          "rowQuantity": 1,
+          "levelQuantity": 3
+        }
+      ],
+      "warehouse": [
+        {
+          "localisationID": 1,
+          "address": "0001 01",
+          "localisationType": "Regał",
+          "quantity": 2,
+          "typeWeight": {
+            "max": 100,
+            "current": 69.702
+          },
+          "levelWeight": {
+            "max": 500,
+            "current": 169.702
+          }
+        },
+        {
+          "localisationId": 2,
+          "address": "0004 02",
+          "localisationType": "Regał",
+          "quantity": 2,
+          "typeWeight": {
+            "max": 100,
+            "current": 56.12
+          },
+          "levelWeight": {
+            "max": 500,
+            "current": 456.12
+          }
+        }
+      ],
+      "flags": [
+        { "id": 1, "name": "Nowość", "priority": 2 },
+        { "id": 2, "name": "Flaga użytkownika sklepu" },
+        { "id": 3, "name": "Flaga nadwyzki WMS", "priority": 4 },
+        { "id": 4, "name": "Flaga dołożenia", "priority": 1 },
+        {
+          "id": 5,
+          "name": "Flaga przekroczonej pojemności półki",
+          "priority": 5
+        },
+        { "id": 6, "name": "Flaga nieudanego pobrania", "priority": 2 }
+      ]
+    }
+  ]
+}
