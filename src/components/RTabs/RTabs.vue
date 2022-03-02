@@ -3,13 +3,14 @@
     :class="[
       { 'flex-wrap': wrapTab },
       'flex w-full border-b border-secondary-light dark:border-secondary',
-    ]">
-    <slot />
+    ]"
+  >
+    <slot></slot>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, provide, watch, toRef } from 'vue'
+import { defineComponent, ref, provide, watch, toRef } from "vue";
 import {
   RTabPropModelValue,
   RTabsProps,
@@ -17,11 +18,10 @@ import {
   RTabsInstance,
   RTabPropType,
   RTabPropTypes,
-} from './types'
+} from "./types";
 
 export default defineComponent({
-  name: 'RTabs',
-  componentName: 'RTabs',
+  name: "RTabs",
   props: {
     modelValue: {
       type: String,
@@ -46,30 +46,30 @@ export default defineComponent({
       default: false,
     },
   },
-  emits: ['update:modelValue', 'change'],
+  emits: ["update:modelValue", "change"],
   setup(props: RTabsProps, { emit }): RTabsInstance {
-    const currentName = ref<RTabPropModelValue>(props.modelValue)
-    const type = ref<String>(props.type)
+    const currentName = ref<RTabPropModelValue>(props.modelValue);
+    const type = ref<String>(props.type);
     const updateValue = (name: string): void => {
-      emit('update:modelValue', name)
-      emit('change', name)
-      currentName.value = name
-    }
+      emit("update:modelValue", name);
+      emit("change", name);
+      currentName.value = name;
+    };
 
     watch(
       () => props.modelValue,
       (name) => {
-        if (name) updateValue(name)
+        if (name) updateValue(name);
       },
       { immediate: true }
-    )
+    );
 
-    provide<RTabsProvider>('rTabs', {
+    provide<RTabsProvider>("rTabs", {
       currentName,
       type,
-      disabled: toRef(props, 'disabled'),
+      disabled: toRef(props, "disabled"),
       updateValue,
-    })
+    });
   },
-})
+});
 </script>

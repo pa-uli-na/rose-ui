@@ -30,4 +30,3 @@ export * from "./RSwitch";
 export * from "./RTab";
 export * from "./RTable";
 export * from "./RTabs";
-export * from "./RToggle";
