@@ -1,0 +1,76 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "label": "Magazyn",
+      "color": "blue",
+      "modules": [
+        {
+          "id": 1,
+          "groupID": 1,
+          "label": "",
+          "description": "Zarządzaj obszarem magazynowym sklepów m.in. wprowadzaj nowe typy lokalizacji i zlecaj wymiarowania.",
+          "functions": [
+            {
+              "id": 1,
+              "moduleID": 1,
+              "label": "Funkcjonalność 1",
+              "url": "/",
+              "description": "Obsługa procesów związanych ze zbieraniem danych o wymiarach miejsc zmagazynowania"
+            },
+            {
+              "id": 2,
+              "moduleID": 1,
+              "label": "Funkcjonalność 2",
+              "url": "/",
+              "description": "Obsługa procesów związanych ze zbieraniem danych o wymiarach miejsc zmagazynowania"
+            },
+            {
+              "id": 3,
+              "moduleID": 1,
+              "label": "Funkcjonalność 3",
+              "url": "/",
+              "description": "Obsługa procesów związanych ze zbieraniem danych o wymiarach miejsc zmagazynowania"
+            },
+            {
+              "id": 4,
+              "moduleID": 1,
+              "label": "Funkcjonalność 4",
+              "url": "/",
+              "description": "Obsługa procesów związanych ze zbieraniem danych o wymiarach miejsc zmagazynowania"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "label": "Sala sprzedaży",
+      "color": "blue",
+      "modules": [
+        {
+          "id": 2,
+          "groupID": 2,
+          "label": "",
+          "description": "Zarządzaj obszarem magazynowym sklepów m.in. wprowadzaj nowe typy lokalizacji i zlecaj wymiarowania.",
+          "functions": [
+            {
+              "id": 2,
+              "moduleID": 2,
+              "label": "Funkcjonalność 1",
+              "url": "/",
+              "description": "Obsługa procesów związanych ze zbieraniem danych o wymiarach miejsc zmagazynowania"
+            },
+            {
+              "id": 2,
+              "moduleID": 2,
+              "label": "Funkcjonalność 2",
+              "url": "/",
+              "description": "Obsługa procesów związanych ze zbieraniem danych o wymiarach miejsc zmagazynowania"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

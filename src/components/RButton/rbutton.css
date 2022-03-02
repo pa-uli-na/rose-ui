@@ -1,0 +1,101 @@
+/* Tailwind classes */
+
+.r-button {
+  @apply font-semibold focus:outline-none focus:ring-2 focus:ring-opacity-75;
+}
+
+.r-button.r-button--outline-false.r-button--flat-false {
+  @apply px-4;
+}
+
+/* DEFAULT */
+.r-button.r-button--primary.r-button--outline-false.r-button--flat-false:not(:disabled) {
+  @apply bg-primary text-white hover:bg-primary-light;
+}
+.r-button.r-button--secondary.r-button--outline-false.r-button--flat-false:not(:disabled) {
+  @apply bg-secondary text-white hover:bg-secondary-dark;
+}
+.r-button.r-button--success.r-button--outline-false.r-button--flat-false:not(:disabled) {
+  @apply bg-success text-white hover:bg-success-dark;
+}
+.r-button.r-button--warning.r-button--outline-false.r-button--flat-false:not(:disabled) {
+  @apply bg-warning text-white hover:bg-warning-dark;
+}
+.r-button.r-button--danger.r-button--outline-false.r-button--flat-false:not(:disabled) {
+  @apply bg-danger text-white hover:bg-danger-dark;
+}
+.r-button.r-button--black.r-button--outline-false.r-button--flat-false:not(:disabled) {
+  @apply bg-black text-white hover:bg-gray-800;
+}
+
+/* OUTLINED */
+.r-button.r-button--outline-true {
+  @apply px-4 bg-white border;
+}
+.r-button.r-button--primary.r-button--outline-true {
+  @apply text-primary border-primary hover:bg-primary hover:text-white;
+}
+.r-button.r-button--secondary.r-button--outline-true {
+  @apply text-secondary border-secondary hover:bg-secondary hover:text-white;
+}
+.r-button.r-button--success.r-button--outline-true {
+  @apply text-success border-success hover:bg-success hover:text-white;
+}
+.r-button.r-button--warning.r-button--outline-true {
+  @apply text-warning border-warning hover:bg-warning hover:text-white;
+}
+.r-button.r-button--danger.r-button--outline-true {
+  @apply text-danger border-danger hover:bg-danger hover:text-white;
+}
+.r-button.r-button--black.r-button--outline-true {
+  @apply text-black border-black hover:bg-gray-800;
+}
+
+/* FLAT */
+.r-button.r-button--outline-true {
+  @apply px-2 bg-white;
+}
+.r-button.r-button--primary.r-button--flat-true {
+  @apply text-primary hover:bg-primary-lighter hover:text-primary;
+}
+.r-button.r-button--secondary.r-button--flat-true {
+  @apply text-secondary  hover:bg-secondary-light hover:text-secondary;
+}
+.r-button.r-button--success.r-button--flat-true {
+  @apply text-success  hover:bg-success-light hover:text-success;
+}
+.r-button.r-button--warning.r-button--flat-true {
+  @apply text-warning  hover:bg-warning hover:text-white;
+}
+.r-button.r-button--danger.r-button--flat-true {
+  @apply text-danger  hover:bg-danger-light hover:text-danger;
+}
+.r-button.r-button--black.r-button--flat-true {
+  @apply text-black  hover:bg-secondary-light hover:text-black;
+}
+
+/* SIZES */
+.r-button--size-small {
+  @apply px-2 py-1 text-xs;
+}
+.r-button--size-medium {
+  @apply px-3 py-2 text-sm;
+}
+.r-button--size-large {
+  @apply px-5 py-3 text-lg;
+}
+
+/* ROUNDED */
+.r-button.r-button--round-true {
+  @apply rounded-md;
+}
+
+/* BLOCK */
+.r-button.r-button--block-true {
+  @apply w-full;
+}
+
+/* DISABLED */
+.r-button:disabled {
+  @apply disabled:bg-secondary-light disabled:text-secondary-dark disabled:border-secondary-light disabled:shadow-none;
+}

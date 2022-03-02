@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary-lighter: 238, 242, 255;
+    --color-primary-light: 129, 140, 248;
+    --color-primary-DEFAULT: 67, 56, 202;
+    --color-primary-dark: 49, 46, 129;
+  }
+  .theme-red {
+    --color-primary-lighter: 246, 203, 203;
+    --color-primary-light: 248, 113, 113;
+    --color-primary-DEFAULT: 224, 82, 82;
+    --color-primary-dark: 156, 28, 28;
+  }
+  .theme-blue {
+    --color-primary-lighter: 186, 230, 253;
+    --color-primary-light: 125, 211, 252;
+    --color-primary-DEFAULT: 2, 132, 199;
+    --color-primary-dark: 12, 74, 110;
+  }
+  .theme-green {
+    --color-primary-lighter: 209, 240, 223;
+    --color-primary-light: 117, 209, 160;
+    --color-primary-DEFAULT: 56, 168, 108;
+    --color-primary-dark: 36, 107, 69;
+  }
+}
