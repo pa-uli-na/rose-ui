@@ -23,17 +23,21 @@ const TemplateDefault = (args) =>
       <r-tabs v-model="activeTab">
         <r-tab name="first_tab">
           <template #title>
-          Tab 1
+          Tab
           <r-badge>1</r-badge>
         </template>
         </r-tab>
         <r-tab
           name="second_tab"
           title="Second tab"
-        />
+        >
+          <template #title>
+          Tab
+          <r-badge>2</r-badge>
+        </r-tab>
         <r-tab name="third_tab">
           <template #title>
-          Tab 3
+          Tab
           <r-badge>3</r-badge>
         </template>
         </r-tab>

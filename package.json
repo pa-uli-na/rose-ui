@@ -9,9 +9,9 @@
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=50c069e5abfc"
+    "publish-storybook": "npx chromatic --project-token=50c069e5abfc"
   },
-  "dependencies": {
+  "peerDependencies": {
     "vue": "^3.2.25"
   },
   "devDependencies": {
@@ -31,5 +31,18 @@
     "vite": "^2.8.0",
     "vue-loader": "^16.8.3",
     "vue-tsc": "^0.29.8"
-  }
+  },
+  "main": "./dist/ross-ui.umd.js",
+  "module": "./dist/ross-ui.es.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/ross-ui.es.js",
+      "require": "./dist/ross-ui.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "types": "./dist/src/index.d.ts"
 }

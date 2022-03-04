@@ -1,9 +1,11 @@
 <template>
   <div
     :class="[
-      filledRef,
-      'relative my-2 text-primary border-2 focus-within:border-primary focus-within:text-primary transition-all duration-500 rounded dark:text-primary-light dark:focus-within:border-primary-light',
-    ]">
+      inputRoundRef,
+      inputDisabledRef,
+      'relative my-2 text-primary border-2 focus-within:border-primary focus-within:text-primary transition-all duration-500 dark:text-primary-light dark:focus-within:border-primary-light',
+    ]"
+  >
     <div :class="['absolute px-1 uppercase w-full', labelSizeType]">
       <label for="name" :class="['ml-1 font-semibold', labelRef]">
         <slot>{{ label }}</slot>
@@ -16,9 +18,9 @@
       :autocomplete="autocompleteRef"
       :autofocus="autofocus"
       :class="[
-        filledRef,
-        'w-full h-full outline-none text-black dark:text-white pl-3',
         inputRoundRef,
+        'w-full h-full outline-none text-black dark:text-white pl-3',
+        ,
         inputSizeType,
       ]"
       :disabled="disabled"
@@ -27,19 +29,19 @@
       :maxLength="maxLength"
       :name="name"
       :placeholder="placeholder"
-      :required="required"
       :type="type"
       :value="modelValue"
       @input="handleInput"
       @keydown="() => $emit('keydown')"
       @focus="() => $emit('focus')"
       @focusout="() => $emit('focusout')"
-      @keydown.enter="() => $emit('enter')" />
+      @keydown.enter="() => $emit('enter')"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from 'vue'
+import { computed, defineComponent, ref } from "vue";
 import {
   RInputInstance,
   RInputProps,
@@ -47,10 +49,10 @@ import {
   RInputPropSizes,
   RInputPropType,
   RInputPropTypes,
-} from './types'
+} from "./types";
 
 export default defineComponent({
-  name: 'RInput',
+  name: "RInput",
   props: {
     modelValue: {
       type: String,
@@ -77,15 +79,10 @@ export default defineComponent({
       required: false,
       default: false,
     },
-    filled: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     id: {
       type: String,
       required: false,
-      default: 'sampleID',
+      default: "sampleID",
     },
     label: {
       type: String,
@@ -117,11 +114,11 @@ export default defineComponent({
       required: false,
       default: undefined,
     },
-    required: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
+    // required: {
+    //   type: Boolean,
+    //   required: false,
+    //   default: false,
+    // },
     rounded: {
       type: Boolean,
       required: false,
@@ -130,79 +127,80 @@ export default defineComponent({
     size: {
       type: String,
       required: false,
-      default: 'medium',
+      default: "medium",
     },
     type: {
       type: String,
       required: false,
-      default: 'text',
+      default: "text",
     },
   },
   emits: [
-    'enter',
-    'focus',
-    'focusout',
-    'input',
-    'keydown',
-    'update:modelValue',
+    "enter",
+    "focus",
+    "focusout",
+    "input",
+    "keydown",
+    "update:modelValue",
   ],
   setup(props: RInputProps, { emit }): RInputInstance {
     const inputRoundRef = computed(() =>
-      props.rounded === true ? `rounded-lg` : ''
-    )
+      props.rounded === true ? `rounded-lg` : ""
+    );
+    const inputDisabledRef = computed(() =>
+      props.disabled ? "bg-secondary-light text-secondary" : ""
+    );
     const autocompleteRef = computed(() =>
-      props.autocomplete === true ? 'on' : 'off'
-    )
+      props.autocomplete === true ? "on" : "off"
+    );
+
     const labelRef = computed(() =>
-      props.badge === true
-        ? 'bg-primary text-white rounded-md px-2'
-        : 'bg-white dark:bg-gray-800 px-1 font-normal'
-    )
+      props.disabled
+        ? "bg-white text-secondary px-1"
+        : props.badge === true
+        ? "bg-primary text-white rounded-md px-2"
+        : "bg-white dark:bg-gray-800 px-1 font-normal"
+    );
 
     const labelSizeType = computed(() => {
       switch (props.size) {
-        case 'small':
-          return 'text-xs -mt-2'
-        case 'large':
-          return 'text-xl -mt-4'
+        case "small":
+          return "text-xs -mt-2";
+        case "large":
+          return "text-xl -mt-4";
         default:
-          return '-mt-3'
+          return "-mt-3";
       }
-    })
+    });
 
     const inputSizeType = computed(() => {
       switch (props.size) {
-        case 'small':
-          return 'h-5 mt-2 text-xs'
-        case 'large':
-          return 'h-8 mt-3 text-lg'
+        case "small":
+          return "h-5 mt-2 text-xs";
+        case "large":
+          return "h-8 mt-3 text-lg";
         default:
-          return 'h-8 mt-3'
+          return "h-8 mt-3";
       }
-    })
+    });
 
     function handleInput(e: Event) {
-      const element = e.target as HTMLInputElement
-      const value = element?.value
-      emit(`update:modelValue`, value)
+      const element = e.target as HTMLInputElement;
+      const value = element?.value;
+      emit(`update:modelValue`, value);
     }
-
-    const filledRef = computed(() => {
-      if (props.filled) return 'bg-secondary-light text-center dark:bg-gray-700'
-      return 'bg-transparent'
-    })
 
     return {
       autocompleteRef,
-      filledRef,
+      inputDisabledRef,
       inputRoundRef,
       inputSizeType,
       labelRef,
       labelSizeType,
       handleInput,
-    }
+    };
   },
-})
+});
 </script>
 
 <style scoped>
@@ -214,7 +212,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield; /* Firefox */
 }
 </style>

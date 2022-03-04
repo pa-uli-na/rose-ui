@@ -11,7 +11,7 @@ module.exports = {
   darkMode: "class",
   content: [
     "./src/components/**/*.{vue,js,ts,jsx,tsx}",
-    // "./src/pages/**/*.{vue,js,ts,jsx,tsx}",
+    "./src/pages/**/*.{vue,js,ts,jsx,tsx}",
   ],
   plugins: [],
   theme: {
