@@ -12,6 +12,7 @@ Przy wsparciu:
 - [Storybook](https://storybook.js.org/)
 
 Do dodania:
+
 - ESlint+Prettier
 
 ## Rekomendowana konfiguracja IDE
@@ -51,7 +52,7 @@ npm run build
 Pliki pakowane są do formatu '.tgz'
 
 ```sh
-pakiet npm
+npm pack
 ```
 
 # Użycie biblioteki w innym projekcie
@@ -75,6 +76,7 @@ import { RButton } from 'rose-ui'
   <r-button>Test</r-button>
 </template>
 ```
+
 ## Globalne podłączenie biblioteki w projekcie
 
 Otwieramy plik 'main.ts'
@@ -97,10 +99,13 @@ const roseui = create({
 createApp(App).use(roseui).mount('#app')
 
 ```
+
 PS. Nie działa podpowiadanie typów :(
 
 # Tematy
+
 Zmiana motywu polega na dodaniu klasy wybranego motywu w nadrzędnym div, np. w indeks.html
+
 ```sh
 class="theme-green"
 ```
