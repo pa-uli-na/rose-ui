@@ -11,6 +11,9 @@ Przy wsparciu:
 
 - [Storybook](https://storybook.js.org/)
 
+Do dodania:
+- ESlint+Prettier
+
 ## Rekomendowana konfiguracja IDE
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (i wyłączony Vetur).
