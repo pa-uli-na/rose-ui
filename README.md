@@ -21,25 +21,25 @@ Przy wsparciu:
 
 ### Instalacja zależności
 
-'''sh
+```sh
 instalacja npm
 ```
 
 ### Lokalne uruchomienie
 
-'''sh
+```sh
 npm run dev
 ```
 
 ### Lokalne uruchomienie storybook'a
 
-'''sh
+```sh
 npm run storybook
 ```
 
 ## Build biblioteki komponentów
 
-'''sh
+```sh
 npm run build
 ```
 
@@ -47,7 +47,7 @@ npm run build
 
 Pliki pakowane są do formatu '.tgz'
 
-'''sh
+```sh
 pakiet npm
 ```
 
@@ -55,7 +55,7 @@ pakiet npm
 
 ## Instalacja biblioteki
 
-'''sh
+```sh
 npm instal -D .. /rose-ui-0.0.0.tgz
 ```
 
@@ -63,7 +63,7 @@ PS. Powyżej przykładowa lokalizacja biblioteki
 
 ## Podłączenie komponentu w miejscu użycia
 
-'''sh
+```sh
 <script setup lang="ts">
 import { RButton } z 'rose-ui'
 </skrypt>
@@ -73,7 +73,7 @@ import { RButton } z 'rose-ui'
 ```
 ## Globalne podłączenie biblioteki w projekcie
 Otwieramy plik 'main.ts'
-'''sh
+```sh
 import { createApp } z 'vue'
 import aplikacji z './App.vue'
 import {
@@ -91,6 +91,6 @@ createApp(App).use(roseUi).mount('#app')
 PS. Nie działa podpowiadanie typów :(
 # Tematy
 Zmiana motywu polega na dodaniu klasy wybranego motywu w nadrzędnym div, np. w indeks.html
-'''sh
+```sh
 class="theme-green"
 ```
