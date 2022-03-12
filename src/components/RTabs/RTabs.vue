@@ -16,9 +16,8 @@ import {
   RTabsProps,
   RTabsProvider,
   RTabsInstance,
-  RTabPropType,
-  RTabPropTypes,
 } from "./types";
+import { SizeType, SizeTypes, StateType, StateTypes } from "../global-types";
 
 export default defineComponent({
   name: "RTabs",
@@ -37,9 +36,9 @@ export default defineComponent({
     /** Typ przycisku: Primary, Secondary, Success, Warning, Danger */
     type: {
       type: String,
-      default: RTabPropTypes.primary,
-      validator: (value: RTabPropType) =>
-        Object.values(RTabPropTypes).includes(value),
+      default: StateTypes.primary,
+      validator: (value: StateType) =>
+        Object.values(StateTypes).includes(value),
     },
     wrapTab: {
       type: Boolean,

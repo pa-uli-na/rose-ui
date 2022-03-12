@@ -42,14 +42,8 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref } from "vue";
-import {
-  RInputInstance,
-  RInputProps,
-  RInputPropSize,
-  RInputPropSizes,
-  RInputPropType,
-  RInputPropTypes,
-} from "./types";
+import { RInputInstance, RInputProps } from "./types";
+import { SizeType, SizeTypes, StateType, StateTypes } from "../global-types";
 
 export default defineComponent({
   name: "RInput",
@@ -164,9 +158,9 @@ export default defineComponent({
 
     const labelSizeType = computed(() => {
       switch (props.size) {
-        case "small":
+        case SizeTypes.small:
           return "text-xs -mt-2";
-        case "large":
+        case SizeTypes.large:
           return "text-xl -mt-4";
         default:
           return "-mt-3";
@@ -175,9 +169,9 @@ export default defineComponent({
 
     const inputSizeType = computed(() => {
       switch (props.size) {
-        case "small":
+        case SizeTypes.small:
           return "h-5 mt-2 text-xs";
-        case "large":
+        case SizeTypes.large:
           return "h-8 mt-3 text-lg";
         default:
           return "h-8 mt-3";

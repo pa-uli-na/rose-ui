@@ -3,13 +3,15 @@
     <div
       :class="['input-container', sizeType]"
       v-for="(item, index) in items"
-      :key="`radio-tile-${index}`">
+      :key="`radio-tile-${index}`"
+    >
       <input
         :id="`radio-${item.value}`"
         class="radio-button"
         type="radio"
         :name="name"
-        @change="handleChange(item.value)" />
+        @change="handleChange(item.value)"
+      />
       <div class="radio-tile">
         <div class="icon" v-if="item.icon">
           <r-icon :name="item.icon" :class-name="'fa-lg'"></r-icon>
@@ -23,20 +25,13 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType } from 'vue'
-import { RIcon } from '../RIcon'
-import {
-  RRadioTileInstance,
-  RRadioTileItem,
-  RRadioTilePropSize,
-  RRadioTilePropSizes,
-  RRadioTilePropType,
-  RRadioTilePropTypes,
-  RRadioTileProps,
-} from './types'
+import { computed, defineComponent, PropType } from "vue";
+import { RIcon } from "../RIcon";
+import { RRadioTileInstance, RRadioTileItem, RRadioTileProps } from "./types";
+import { SizeType, SizeTypes, StateType, StateTypes } from "../global-types";
 
 export default defineComponent({
-  name: 'RRadioTile',
+  name: "RRadioTile",
   components: { RIcon },
   props: {
     modelValue: {
@@ -48,11 +43,11 @@ export default defineComponent({
       type: Array as PropType<RRadioTileItem[]>,
       required: true,
       validator: (items: RRadioTileItem[]) => {
-        let isValid = true
+        let isValid = true;
         items.forEach((item: RRadioTileItem) => {
-          isValid = isValid && 'label' in item && 'value' in item
-        })
-        return isValid
+          isValid = isValid && "label" in item && "value" in item;
+        });
+        return isValid;
       },
     },
     name: {
@@ -61,9 +56,8 @@ export default defineComponent({
     },
     size: {
       type: String,
-      default: 'medium',
-      validator: (value: RRadioTilePropSize) =>
-        Object.values(RRadioTilePropSizes).includes(value),
+      default: "medium",
+      validator: (value: SizeType) => Object.values(SizeTypes).includes(value),
     },
     disabled: {
       type: Boolean,
@@ -71,26 +65,26 @@ export default defineComponent({
       default: false,
     },
   },
-  emits: ['update:modelValue'],
+  emits: ["update:modelValue"],
   setup(props, { emit }) {
     const sizeType = computed(() => {
       switch (props.size) {
-        case 'small':
-          return 'r-radio-tile--size-small'
-        case 'large':
-          return 'r-radio-tile--size-large'
+        case SizeTypes.small:
+          return "r-radio-tile--size-small";
+        case SizeTypes.large:
+          return "r-radio-tile--size-large";
         default:
-          return 'r-radio-tile--size-medium'
+          return "r-radio-tile--size-medium";
       }
-    })
+    });
 
     function handleChange(value: unknown) {
-      emit(`update:modelValue`, value)
+      emit(`update:modelValue`, value);
     }
 
-    return { sizeType, handleChange }
+    return { sizeType, handleChange };
   },
-})
+});
 </script>
 
 <style>

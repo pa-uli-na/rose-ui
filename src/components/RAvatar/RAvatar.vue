@@ -3,7 +3,8 @@
     <img
       :src="imgLink"
       :class="[shadowClasses, shapeClasses, sizeTypeClass]"
-      alt="Avatar" />
+      alt="Avatar"
+    />
     <h5 v-if="title" class="text-xl font-medium leading-tight mb-2">
       {{ title }}
     </h5>
@@ -12,24 +13,19 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
-import {
-  RAvatarProps,
-  RAvatarInstance,
-  RAvatarPropSize,
-  RAvatarPropSizes,
-} from './types'
+import { computed, defineComponent } from "vue";
+import { SizeType, SizeTypes } from "../global-types";
 
 export default defineComponent({
-  name: 'RAvatar',
+  name: "RAvatar",
   props: {
     description: {
       type: String,
-      default: '',
+      default: "",
     },
     imgLink: {
       type: String,
-      default: 'https://mdbcdn.b-cdn.net/img/new/avatars/2.webp',
+      default: "https://mdbcdn.b-cdn.net/img/new/avatars/2.webp",
       required: true,
     },
     isSquare: {
@@ -38,42 +34,41 @@ export default defineComponent({
     },
     size: {
       type: String,
-      default: 'medium',
-      validator: (value: RAvatarPropSize) =>
-        Object.values(RAvatarPropSizes).includes(value),
+      default: "medium",
+      validator: (value: SizeType) => Object.values(SizeTypes).includes(value),
     },
     title: {
       type: String,
-      default: '',
+      default: "",
     },
     withShadow: {
       type: Boolean,
       default: false,
     },
   },
-  setup(props: RAvatarProps): RAvatarInstance {
-    const shadowClasses = computed(() => (props.withShadow ? 'shadow-lg' : ''))
+  setup(props) {
+    const shadowClasses = computed(() => (props.withShadow ? "shadow-lg" : ""));
 
     const shapeClasses = computed(() =>
-      props.isSquare ? 'rounded-lg' : 'rounded-full '
-    )
+      props.isSquare ? "rounded-lg" : "rounded-full "
+    );
 
     const sizeTypeClass = computed(() => {
       switch (props.size) {
-        case RAvatarPropSizes.small:
-          return 'w-7'
-        case RAvatarPropSizes.large:
-          return 'w-32'
+        case SizeTypes.small:
+          return "w-7";
+        case SizeTypes.large:
+          return "w-32";
         default:
-          return 'w-20'
+          return "w-20";
       }
-    })
+    });
 
     return {
       shadowClasses,
       shapeClasses,
       sizeTypeClass,
-    }
+    };
   },
-})
+});
 </script>

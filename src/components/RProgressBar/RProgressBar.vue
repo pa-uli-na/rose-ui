@@ -3,7 +3,9 @@
     <div class="flex items-center justify-between">
       <div v-if="title">
         <slot name="title">
-          <span class="text-sm inline-block pb-1 px-2 rounded-full text-secondary">
+          <span
+            class="text-sm inline-block pb-1 px-2 rounded-full text-secondary"
+          >
             {{ title }}
           </span>
         </slot>
@@ -16,69 +18,50 @@
       </slot>
     </div>
     <r-bar :totalValue="totalValue" :values="barValues"></r-bar>
-    <r-collapse-item v-if="legend" :title="legendTitle">
-      <template #text>
-        <div class="flex flex-row flex-nowrap text-xs">
-          <span
-            class="flex flex-row flex-nowrap align-middle"
-            v-for="(progressValue, index) in progressValues"
-            v-bind:key="index">
-            <div
-              class="h-2 w-2 mx-2 mt-1"
-              :style="{ backgroundColor: progressValue?.color }"></div>
-            <div class="text-black">
-              {{ progressValue.name }} -
-              {{ progressValue.valueText ?? progressValue.value + '%' }}
-            </div>
-          </span>
-        </div>
-      </template>
-    </r-collapse-item>
   </div>
 </template>
 
 <script lang="ts">
-import '../../theme/index.css'
-import { computed, defineComponent, PropType } from 'vue'
-import RCollapseItem from '../RCollapseItem/RCollapseItem.vue'
+import "../../theme/index.css";
+import { computed, defineComponent, PropType } from "vue";
 import {
   RProgressBarValue,
   RProgressBarProps,
   RProgressBarInstance,
-} from './types'
+} from "./types";
 
-import RBar from '../RBar/RBar.vue'
+import RBar from "../RBar/RBar.vue";
 
 export default defineComponent({
-  name: 'RProgressBar',
-  components: { RBar, RCollapseItem },
+  name: "RProgressBar",
+  components: { RBar },
   props: {
     legend: { type: Boolean, default: true },
     progressValues: {
       type: Array as PropType<RProgressBarValue[]>,
       default: [],
     },
-    sumText: { type: String, default: '' },
-    title: { type: String, default: '' },
-    legendTitle: { type: String, default: 'Legend' },
+    sumText: { type: String, default: "" },
+    title: { type: String, default: "" },
+    legendTitle: { type: String, default: "Legend" },
     totalValue: { type: Number, default: 100 },
   },
   setup(props: RProgressBarProps): RProgressBarInstance {
     const sumValues = computed(() => {
-      let sum = 0
+      let sum = 0;
       props.progressValues?.forEach((progressValue) => {
-        sum += progressValue.value
-      })
-      return (sum / props.totalValue) * 100
-    })
+        sum += progressValue.value;
+      });
+      return (sum / props.totalValue) * 100;
+    });
 
     const barValues = computed(() =>
       props.progressValues?.map((val) => {
-        return { color: val.color, value: val.value }
+        return { color: val.color, value: val.value };
       })
-    )
+    );
 
-    return { sumValues, barValues }
+    return { sumValues, barValues };
   },
-})
+});
 </script>

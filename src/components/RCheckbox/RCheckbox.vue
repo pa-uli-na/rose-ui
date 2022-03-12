@@ -8,13 +8,15 @@
         :disabled="disabled"
         :value="checkedRef"
         @input="handleInput"
-        hidden />
+        hidden
+      />
       <label class="r-checkbox__label" :for="id" @click="handleClick">
         <i
           :class="{
             'fas fa-check-square': checkedRef,
             'far fa-square': !checkedRef,
-          }"></i>
+          }"
+        ></i>
         {{ label }}</label
       >
     </div>
@@ -22,18 +24,11 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, ref, watch } from 'vue'
-import {
-  RCheckboxPropSize,
-  RCheckboxPropSizes,
-  RCheckboxInstance,
-  RCheckboxProps,
-  RCheckboxPropType,
-  RCheckboxPropTypes,
-} from './types'
+import { computed, defineComponent, PropType, ref, watch } from "vue";
+import { SizeType, SizeTypes, StateType, StateTypes } from "../global-types";
 
 export default defineComponent({
-  name: 'RCheckbox',
+  name: "RCheckbox",
   props: {
     modelValue: {
       type: Boolean,
@@ -59,66 +54,65 @@ export default defineComponent({
     },
     size: {
       type: String,
-      default: 'medium',
-      validator: (value: RCheckboxPropSize) =>
-        Object.values(RCheckboxPropSizes).includes(value),
+      default: "medium",
+      validator: (value: SizeType) => Object.values(SizeTypes).includes(value),
     },
     type: {
       type: String,
-      default: RCheckboxPropTypes.primary,
-      validator: (value: RCheckboxPropType) =>
-        Object.values(RCheckboxPropTypes).includes(value),
+      default: StateTypes.primary,
+      validator: (value: StateType) =>
+        Object.values(StateTypes).includes(value),
     },
   },
-  emits: ['update:modelValue'],
+  emits: ["update:modelValue"],
   setup(props, { emit }) {
-    const checkedRef = ref(props.modelValue)
+    const checkedRef = ref(props.modelValue);
     watch(checkedRef, (newValue, prevValue) => {
-      checkedRef.value = newValue
-    })
+      checkedRef.value = newValue;
+    });
 
     const outlinedRef = computed(() =>
-      props.outlined ? 'r-checkbox--outlined' : ''
-    )
+      props.outlined ? "r-checkbox--outlined" : ""
+    );
 
     const sizeType = computed(() => {
       switch (props.size) {
-        case 'small':
-          return 'r-checkbox--small'
-        case 'large':
-          return 'r-checkbox--large'
+        case "small":
+          return "r-checkbox--small";
+        case "large":
+          return "r-checkbox--large";
         default:
-          return 'r-checkbox--medium'
+          return "r-checkbox--medium";
       }
-    })
+    });
 
     const colorType = computed(() => {
-      if (props.disabled) return 'r-checkbox--disabled'
+      if (props.disabled) return "r-checkbox--disabled";
 
       switch (props.type) {
-        case RCheckboxPropTypes.secondary:
-          return 'r-checkbox--type-secondary'
-        case RCheckboxPropTypes.success:
-          return 'r-checkbox--type-success'
-        case RCheckboxPropTypes.warning:
-          return 'r-checkbox--type-warning'
-        case RCheckboxPropTypes.danger:
-          return 'r-checkbox--type-danger'
-        case RCheckboxPropTypes.black:
-          return 'r-checkbox--type-black'
+        case StateTypes.secondary:
+          return "r-checkbox--type-secondary";
+        case StateTypes.success:
+          return "r-checkbox--type-success";
+        case StateTypes.warning:
+          return "r-checkbox--type-warning";
+        case StateTypes.danger:
+          return "r-checkbox--type-danger";
+        case StateTypes.black:
+          return "r-checkbox--type-black";
         default:
-          return 'r-checkbox--type-primary'
+          return "r-checkbox--type-primary";
       }
-    })
+    });
 
     function handleInput(event: Event) {
-      const target = event.target as HTMLInputElement
-      emit('update:modelValue', target.checked)
+      const target = event.target as HTMLInputElement;
+      emit("update:modelValue", target.checked);
     }
 
     function handleClick() {
-      if (props.disabled) return
-      checkedRef.value = !checkedRef.value
+      if (props.disabled) return;
+      checkedRef.value = !checkedRef.value;
     }
 
     return {
@@ -128,9 +122,9 @@ export default defineComponent({
       sizeType,
       handleClick,
       handleInput,
-    }
+    };
   },
-})
+});
 </script>
 
 <style>
@@ -150,7 +144,7 @@ export default defineComponent({
   @apply inline-block text-gray-800 dark:text-white cursor-pointer;
 }
 
-.r-checkbox__input:checked[type='checkbox']:disabled {
+.r-checkbox__input:checked[type="checkbox"]:disabled {
   @apply pointer-events-none filter-none;
 }
 

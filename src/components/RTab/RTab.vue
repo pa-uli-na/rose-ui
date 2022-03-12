@@ -19,7 +19,8 @@
 
 <script lang="ts">
 import { defineComponent, inject, computed } from "vue";
-import { RTabsProvider, RTabPropType, RTabPropTypes } from "../RTabs/types";
+import { RTabsProvider } from "../RTabs/types";
+import { SizeType, SizeTypes, StateType, StateTypes } from "../global-types";
 
 export default defineComponent({
   name: "RTab",
@@ -63,15 +64,15 @@ export default defineComponent({
 
       if (rtabs?.currentName.value === props.name) {
         switch (rtabs.type.value) {
-          case RTabPropTypes.black:
+          case StateTypes.black:
             return `cursor-pointer border-black border-b-4 font-semibold text-black hover:text-black hover:border-black dark:text-black dark:hover:text-black dark:hover:border-black`;
-          case RTabPropTypes.danger:
+          case StateTypes.danger:
             return `cursor-pointer border-danger border-b-4 font-semibold text-black hover:text-danger hover:border-danger dark:text-danger dark:hover:text-danger dark:hover:border-danger`;
-          case RTabPropTypes.secondary:
+          case StateTypes.secondary:
             return `cursor-pointer border-secondary border-b-4 font-semibold text-black hover:text-secondary hover:border-secondary dark:text-secondary dark:hover:text-secondary dark:hover:border-secondary`;
-          case RTabPropTypes.success:
+          case StateTypes.success:
             return `cursor-pointer border-success border-b-4 font-semibold text-black hover:text-success hover:border-success dark:text-success dark:hover:text-success dark:hover:border-success`;
-          case RTabPropTypes.warning:
+          case StateTypes.warning:
             return `cursor-pointer border-warning border-b-4 font-semibold text-black hover:text-warning hover:border-warning dark:text-warning dark:hover:text-warning dark:hover:border-warning`;
           default:
             return `cursor-pointer border-primary border-b-4 font-semibold text-black hover:text-primary hover:border-primary dark:text-primary-light dark:hover:text-primary-light dark:hover:border-primary-light dark:border-primary-light`;
@@ -79,15 +80,15 @@ export default defineComponent({
       }
 
       switch (rtabs?.type.value) {
-        case RTabPropTypes.black:
+        case StateTypes.black:
           return `cursor-pointer border-black text-black hover:text-black hover:border-white dark:text-secondary-light dark:hover:text-black dark:hover:border-black`;
-        case RTabPropTypes.danger:
+        case StateTypes.danger:
           return `cursor-pointer border-danger text-black hover:text-danger hover:border-white dark:text-secondary-light dark:hover:text-danger dark:hover:border-danger`;
-        case RTabPropTypes.secondary:
+        case StateTypes.secondary:
           return `cursor-pointer border-secondary text-black hover:text-secondary hover:border-secondary dark:text-secondary-light dark:hover:text-secondary dark:hover:border-secondary`;
-        case RTabPropTypes.success:
+        case StateTypes.success:
           return `cursor-pointer border-success text-black hover:text-success hover:border-success dark:text-secondary-light dark:hover:text-success dark:hover:border-success`;
-        case RTabPropTypes.warning:
+        case StateTypes.warning:
           return `cursor-pointer border-warning text-black hover:text-warning hover:border-warning dark:text-secondary-light dark:hover:text-warning dark:hover:border-warning`;
         default:
           return `cursor-pointer border-secondary pb-1 text-black dark:text-secondary-light hover:text-primary hover:dark:text-primary-light hover:border-primary dark:hover:border-primary`;

@@ -8,12 +8,6 @@ export const RInputPropTypes: Record<RInputPropType, string> = {
   password: "password",
 };
 
-export type RInputPropSize = "small" | "medium" | "large";
-export const RInputPropSizes: Record<RInputPropSize, string> = {
-  small: "small",
-  medium: "medium",
-  large: "large",
-};
 export interface RInputProps {
   modelInputValue?: String;
   autocomplete?: Boolean;

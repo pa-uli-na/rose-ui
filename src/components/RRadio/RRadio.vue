@@ -3,7 +3,8 @@
     <div
       :class="['r-radio__container', sizeType, outlinedRef]"
       v-for="(item, index) in items"
-      :key="index">
+      :key="index"
+    >
       <input
         class="r-radio__input"
         type="radio"
@@ -11,7 +12,8 @@
         :disabled="disabled"
         :id="`${item.value}Radio`"
         :value="item.value"
-        @change="handleChange(item.value)" />
+        @change="handleChange(item.value)"
+      />
       <label class="r-radio__label" :for="`${item.value}Radio`">{{
         item.label
       }}</label>
@@ -20,19 +22,12 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, ref, watch } from 'vue'
-import {
-  RRadioPropSize,
-  RRadioPropSizes,
-  RRadioItem,
-  RRadioInstance,
-  RRadioProps,
-  RRadioPropType,
-  RRadioPropTypes,
-} from './types'
+import { computed, defineComponent, PropType, ref, watch } from "vue";
+import { RRadioItem, RRadioInstance, RRadioProps } from "./types";
+import { SizeType, SizeTypes, StateType, StateTypes } from "../global-types";
 
 export default defineComponent({
-  name: 'RRadio',
+  name: "RRadio",
   props: {
     modelValue: {
       type: String,
@@ -47,11 +42,11 @@ export default defineComponent({
       type: Array as PropType<RRadioItem[]>,
       required: true,
       validator: (items: RRadioItem[]) => {
-        let isValid = true
+        let isValid = true;
         items.forEach((item: RRadioItem) => {
-          isValid = isValid && 'label' in item && 'value' in item
-        })
-        return isValid
+          isValid = isValid && "label" in item && "value" in item;
+        });
+        return isValid;
       },
     },
     disabled: {
@@ -65,60 +60,59 @@ export default defineComponent({
     },
     size: {
       type: String,
-      default: 'medium',
-      validator: (value: RRadioPropSize) =>
-        Object.values(RRadioPropSizes).includes(value),
+      default: "medium",
+      validator: (value: SizeType) => Object.values(SizeTypes).includes(value),
     },
     type: {
       type: String,
-      default: RRadioPropTypes.primary,
-      validator: (value: RRadioPropType) =>
-        Object.values(RRadioPropTypes).includes(value),
+      default: StateTypes.primary,
+      validator: (value: StateType) =>
+        Object.values(StateTypes).includes(value),
     },
   },
-  emits: ['update:modelValue'],
+  emits: ["update:modelValue"],
   setup(props: RRadioProps, { emit }): RRadioInstance {
     const outlinedRef = computed(() =>
-      props.outlined ? 'r-radio--outlined' : ''
-    )
+      props.outlined ? "r-radio--outlined" : ""
+    );
 
     const sizeType = computed(() => {
       switch (props.size) {
-        case 'small':
-          return 'r-radio--small'
-        case 'large':
-          return 'r-radio--large'
+        case SizeTypes.small:
+          return "r-radio--small";
+        case SizeTypes.large:
+          return "r-radio--large";
         default:
-          return 'r-radio--medium'
+          return "r-radio--medium";
       }
-    })
+    });
 
     const colorType = computed(() => {
-      if (props.disabled) return 'r-radio--disabled'
+      if (props.disabled) return "r-radio--disabled";
 
       switch (props.type) {
-        case RRadioPropTypes.secondary:
-          return 'r-radio--type-secondary'
-        case RRadioPropTypes.success:
-          return 'r-radio--type-success'
-        case RRadioPropTypes.warning:
-          return 'r-radio--type-warning'
-        case RRadioPropTypes.danger:
-          return 'r-radio--type-danger'
-        case RRadioPropTypes.black:
-          return 'r-radio--type-black'
+        case StateTypes.secondary:
+          return "r-radio--type-secondary";
+        case StateTypes.success:
+          return "r-radio--type-success";
+        case StateTypes.warning:
+          return "r-radio--type-warning";
+        case StateTypes.danger:
+          return "r-radio--type-danger";
+        case StateTypes.black:
+          return "r-radio--type-black";
         default:
-          return 'r-radio--type-primary'
+          return "r-radio--type-primary";
       }
-    })
+    });
 
-    const selectedValue = ref(props.modelValue)
+    const selectedValue = ref(props.modelValue);
     watch(selectedValue, (newValue, prevValue) => {
-      selectedValue.value = newValue
-    })
+      selectedValue.value = newValue;
+    });
 
     function handleChange(value: string) {
-      emit(`update:modelValue`, value)
+      emit(`update:modelValue`, value);
     }
 
     return {
@@ -127,9 +121,9 @@ export default defineComponent({
       selectedValue,
       sizeType,
       handleChange,
-    }
+    };
   },
-})
+});
 </script>
 
 <style>
@@ -149,7 +143,7 @@ export default defineComponent({
   @apply inline-block text-gray-800 dark:text-white;
 }
 
-.r-radio__input:checked[type='radio']:disabled {
+.r-radio__input:checked[type="radio"]:disabled {
   @apply pointer-events-none filter-none;
 }
 
