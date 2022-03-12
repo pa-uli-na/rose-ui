@@ -1,6 +1,6 @@
 # O projekcie
 
-Rose UI jest to biblioteka komponentów. Zbudowana została z wykorzystaniem:
+Rose UI jest to testowa biblioteka komponentów. Zbudowana została z wykorzystaniem:
 
 - [Vite](https://vitejs.dev/)
 - [Vue3](https://v3.vuejs.org/)
