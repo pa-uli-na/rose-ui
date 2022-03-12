@@ -4,10 +4,18 @@
 
 @layer base {
   :root {
-    --color-primary-lighter: var(--app-color-primary-lighter);
-    --color-primary-light: var(--app-color-primary-light);
-    --color-primary-DEFAULT: var(--app-color-primary-DEFAULT);
-    --color-primary-dark: var(--app-color-primary-dark);
+    --color-primary-lighter: rgb(238, 242, 255);
+    --color-primary-light: rgb(129, 140, 248);
+    --color-primary-DEFAULT: rgb(67, 56, 202);
+    --color-primary-dark: rgb(49, 46, 129);
+
+    --color-admin: #455667;
+    --color-administration: #b62b5b;
+    --color-layout: #009999;
+    --color-putoff: #286090;
+    --color-stock: #ec971f;
+    --color-stockdoc: #26418f;
+    --color-wms: #c9302c;
   }
 }
 
