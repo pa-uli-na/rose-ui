@@ -1,11 +1,96 @@
-# Vue 3 + Typescript + Vite
+# O projekcie
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Rose UI jest to biblioteka komponentów. Zbudowana została z wykorzystaniem:
 
-## Recommended IDE Setup
+- [Vite](https://vitejs.dev/)
+- [VUE3](https://v3.vuejs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tylny wiatrCSS](https://tailwindcss.com/)
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+Przy wsparciu:
 
-## Type Support For `.vue` Imports in TS
+- [Storybook](https://storybook.js.org/)
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+## Rekomendowana konfiguracja IDE
+
+[VSCode] (https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (i wyłączony Vetur).
+
+# Praca z projektu
+
+## Uruchomienie
+
+### Instalacja zależności
+
+'''sh
+instalacja npm
+```
+
+### Lokalne uruchomienie
+
+'''sh
+npm run dev
+```
+
+### Lokalne uruchomienie storybook'a
+
+'''sh
+npm run storybook
+```
+
+## Build biblioteki komponentów
+
+'''sh
+npm run build
+```
+
+## Spakowanie biblioteki komponentów
+
+Pliki pakowane są do formatu '.tgz'
+
+'''sh
+pakiet npm
+```
+
+# Użycie biblioteki w innym projekcie
+
+## Instalacja biblioteki
+
+'''sh
+npm instal -D .. /rose-ui-0.0.0.tgz
+```
+
+PS. Powyżej przykładowa lokalizacja biblioteki
+
+## Podłączenie komponentu w miejscu użycia
+
+'''sh
+<script setup lang="ts">
+import { RButton } z 'rose-ui'
+</skrypt>
+<szablon>
+  <r-button>Test</r-button><br />
+</szablon>
+```
+## Globalne podłączenie biblioteki w projekcie
+Otwieramy plik 'main.ts'
+'''sh
+import { createApp } z 'vue'
+import aplikacji z './App.vue'
+import {
+ tworzyć
+  RButton,
+  RBadge,
+ // ... inne komponenty
+} z 'rose-ui'
+import 'rose-ui/dist/style.css'
+const roseUi = create({
+ komponenty: [RButton, RBadge],
+})
+createApp(App).use(roseUi).mount('#app')
+```
+PS. Nie działa podpowiadanie typów :(
+# Tematy
+Zmiana motywu polega na dodaniu klasy wybranego motywu w nadrzędnym div, np. w indeks.html
+'''sh
+class="theme-green"
+```
