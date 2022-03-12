@@ -101,11 +101,3 @@ createApp(App).use(roseui).mount('#app')
 ```
 
 PS. Nie działa podpowiadanie typów :(
-
-# Tematy
-
-Zmiana motywu polega na dodaniu klasy wybranego motywu w nadrzędnym div, np. w indeks.html
-
-```sh
-class="theme-green"
-```
