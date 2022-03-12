@@ -13,7 +13,7 @@ Przy wsparciu:
 
 ## Rekomendowana konfiguracja IDE
 
-[VSCode] (https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (i wyłączony Vetur).
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (i wyłączony Vetur).
 
 # Praca z projektu
 
