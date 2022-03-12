@@ -1,51 +1,51 @@
-import { App } from 'vue'
-import version from './version'
+import { App } from "vue";
+import { version } from "../../package.json";
 
-type ComponentType = any
+type ComponentType = any;
 
 export interface RoseUiInstance {
-  version: string
-  install: (app: App) => void
+  version: string;
+  install: (app: App) => void;
 }
 
 interface RoseUiCreateOptions {
-  components?: ComponentType[]
+  components?: ComponentType[];
 }
 
 function create({ components = [] }: RoseUiCreateOptions = {}): RoseUiInstance {
-  const installTargets: App[] = []
+  const installTargets: App[] = [];
 
   function registerComponent(
     app: App,
     name: string,
     component: ComponentType
   ): void {
-    const registered = app.component(name)
+    const registered = app.component(name);
     if (!registered) {
-      app.component(name, component)
+      app.component(name, component);
     }
   }
 
   function install(app: App): void {
-    if (installTargets.includes(app)) return
+    if (installTargets.includes(app)) return;
 
-    installTargets.push(app)
+    installTargets.push(app);
     components.forEach((component) => {
-      const { name, alias } = component
-      registerComponent(app, name, component)
+      const { name, alias } = component;
+      registerComponent(app, name, component);
       if (alias) {
         alias.forEach((aliasName: string) => {
-          registerComponent(app, aliasName, component)
-        })
+          registerComponent(app, aliasName, component);
+        });
       }
-    })
+    });
   }
 
   return {
     version,
     // componentPrefix,
     install,
-  }
+  };
 }
 
-export default create
+export default create;
