@@ -3,9 +3,9 @@
 Rose UI jest to biblioteka komponentów. Zbudowana została z wykorzystaniem:
 
 - [Vite](https://vitejs.dev/)
-- [VUE3](https://v3.vuejs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tylny wiatrCSS](https://tailwindcss.com/)
+- [Vue3](https://v3.vuejs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/)
 
 Przy wsparciu:
 
