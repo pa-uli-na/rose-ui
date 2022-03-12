@@ -1,12 +1,3 @@
-function withOpacity(variableName) {
-  return ({ opacityValue }) => {
-    if (opacityValue !== undefined) {
-      return `rgba(var(${variableName}), ${opacityValue})`;
-    }
-    return `rgb(var(${variableName}))`;
-  };
-}
-
 module.exports = {
   darkMode: "class",
   content: [
@@ -21,10 +12,10 @@ module.exports = {
           DEFAULT: "#c8102e",
         },
         primary: {
-          lighter: withOpacity("--color-primary-lighter"),
-          light: withOpacity("--color-primary-light"),
-          DEFAULT: withOpacity("--color-primary-DEFAULT"),
-          dark: withOpacity("--color-primary-dark"),
+          lighter: "var(--color-primary-lighter)",
+          light: "var(--color-primary-light)",
+          DEFAULT: "var(--color-primary-DEFAULT)",
+          dark: "var(--color-primary-dark)",
         },
         secondary: {
           lighter: "#f5f5f5",

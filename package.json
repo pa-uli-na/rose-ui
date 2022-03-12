@@ -1,7 +1,7 @@
 {
   "name": "ross-ui",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.2",
   "scripts": {
     "dev": "vite",
     "build": "vite build && vue-tsc --emitDeclarationOnly",
@@ -44,5 +44,8 @@
     },
     "./dist/style.css": "./dist/style.css"
   },
-  "types": "./dist/src/index.d.ts"
+  "types": "./dist/src/index.d.ts",
+  "dependencies": {
+    "ross-ui": "file:../../ross-ui-0.0.1.tgz"
+  }
 }
