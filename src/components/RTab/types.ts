@@ -1,16 +1,15 @@
-import type { ComputedRef } from 'vue'
-import type { Nullable } from '../helpers'
+import type { ComputedRef } from "vue";
 
 export interface RTabProps {
-  name: string
-  title: string
-  description: Nullable<string>
-  width: Nullable<string | number>
-  disabled: Nullable<boolean>
+  name: string;
+  title: string;
+  description: string | null;
+  width: string | number | null;
+  disabled: boolean | null;
 }
 
 export interface RTabInstance {
-  isDisabled: ComputedRef<boolean>
-  tabBtnClasses: ComputedRef<Record<string, boolean>>
-  handleTabClick: () => void
+  isDisabled: ComputedRef<boolean>;
+  tabBtnClasses: ComputedRef<Record<string, boolean>>;
+  handleTabClick: () => void;
 }
